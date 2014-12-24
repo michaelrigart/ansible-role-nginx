@@ -1,0 +1,10 @@
+---
+
+- name: set nginx configuration file
+  template:
+    src: nginx.conf.j2
+    dest: '{{ nginx_path }}/nginx.conf'
+    owner: root
+    group: root
+    mode: 0644
+  notify: nginx_restart

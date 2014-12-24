@@ -1,0 +1,14 @@
+---
+
+- name: add repository
+  apt_repository:
+    repo: '{{ nginx_ppa }}'
+    update_cache: yes
+
+- name: install the nginx package
+  apt:
+    name: '{{ nginx_package }}'
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  notify: nginx_restart

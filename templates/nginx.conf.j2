@@ -1,0 +1,18 @@
+{% for param, value in nginx_config['main'].items() %}
+{{ param }}     {{ value }};
+{% endfor %}
+
+
+{% for section, options in nginx_config.iteritems() if not section == 'main' %}
+{{ section }} {
+{% for key, value in options.iteritems() %}
+{% if value is string %}
+  {{ key }}     {{ value }};
+{% else %}
+{% for item in value %}
+  {{ key }}     {{ item }};
+{% endfor %}
+{% endif %}
+{% endfor %}
+}
+{% endfor %}

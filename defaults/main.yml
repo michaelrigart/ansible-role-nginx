@@ -1,0 +1,38 @@
+---
+
+nginx_ppa: 'ppa:nginx/stable'
+nginx_package: 'nginx'
+nginx_path: '/etc/nginx'
+nginx_service_state: 'started'
+nginx_service_enabled: 'yes'
+nginx_config:
+  main:
+    user: 'www-data www-data'
+    worker_processes: '3'
+    pid:  '/var/run/nginx.pid'
+  events:
+    worker_connections: '1024'
+    multi_accept: 'on'
+  http:
+    access_log: '/var/log/nginx/access.log'
+    error_log: '/var/log/nginx/error.log'
+    sendfile: 'on'
+    tcp_nopush: 'on'
+    tcp_nodelay: 'on'
+    keepalive_timeout: '65'
+    types_hash_max_size: '2048'
+    client_max_body_size: '100M'
+    server_tokens: 'off'
+    server_names_hash_max_size: '2048'
+    gzip: 'on'
+    gzip_comp_level: '9'
+    gzip_buffers: '16 8k'
+    gzip_disable: '"msie6"'
+    gzip_proxied: 'any'
+    gzip_types: 'text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript'
+    charset: 'utf-8'
+    include:
+      - '/etc/nginx/conf.d/*.conf'
+      - '/etc/nginx/sites-enabled/*'
+      - '/etc/nginx/mime.types'
+    default_type: 'application/octet-stream'
