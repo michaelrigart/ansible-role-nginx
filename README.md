@@ -1,6 +1,5 @@
 Ansible Nginx Role
 ==================
-[![Build Status](https://semaphoreci.com/api/v1/projects/7870904b-02ed-4f17-a059-1c6f59187e1d/461762/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-nginx)
 
 An ansible role for installing and configuring Nginx from a PPA.
 
@@ -24,7 +23,7 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-     - { role: MichaelRigart.nginx, sudo: Yes }
+     - { role: MichaelRigart.nginx, become: true }
 ```
 
 License
