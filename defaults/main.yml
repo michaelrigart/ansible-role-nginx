@@ -1,5 +1,6 @@
 ---
 
+nginx_ppa_key: 'http://nginx.org/keys/nginx_signing.key'
 nginx_ppa: 'ppa:nginx/stable'
 nginx_package: 'nginx'
 nginx_path: '/etc/nginx'

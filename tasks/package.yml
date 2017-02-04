@@ -1,5 +1,9 @@
 ---
 
+- name: ensure APT official nginx key
+  apt_key:
+    url: '{{ nginx_ppa_key }}'
+
 - name: add repository
   apt_repository:
     repo: '{{ nginx_ppa }}'
