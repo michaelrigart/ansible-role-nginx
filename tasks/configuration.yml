@@ -8,3 +8,13 @@
     group: root
     mode: 0644
   notify: nginx_restart
+
+- name: set nginx snippets
+  copy:
+    src: '{{ item }}'
+    dest: '{{ nginx_path}}/{{ item }}'
+    owner: root
+    group: root
+    mode: 0644
+  notify: nginx_restart
+  with_items: '{{ nginx_snippets }}'

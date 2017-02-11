@@ -6,6 +6,7 @@ nginx_package: 'nginx'
 nginx_path: '/etc/nginx'
 nginx_service_state: 'started'
 nginx_service_enabled: 'yes'
+nginx_snippet: []
 nginx_config:
   main:
     - 'user www-data;'
